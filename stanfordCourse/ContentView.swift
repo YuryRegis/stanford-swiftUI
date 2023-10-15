@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject
     var viewModel: EmojiMemoryGameViewModel
     var body: some View {
         ScrollView {
@@ -29,18 +30,22 @@ struct ContentView: View {
 
 // Exemplo de componentização e combinação de elementos
 struct CardView: View {
-    var card: MemoryGameModel<String>.Card
+    let card: MemoryGameModel<String>.Card
     var body: some View {
         if card.isFaceUp {
             // O último argumento é um "content", então podemos reescrever um ZStack desta forma:
             ZStack {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).strokeBorder(lineWidth: 3)
+                RoundedRectangle(cornerRadius: 10.0)
+                    .fill(Color.white)
+                    .strokeBorder(lineWidth: 3)
                 Text(card.content)
-            }
+            }.padding(0)
         } else {
             ZStack {
-                RoundedRectangle(cornerRadius: 10.0).fill()
+                Text(card.content)
+                RoundedRectangle(cornerRadius: 10.0)
+                    .fill()
+                    .strokeBorder(lineWidth: 3)
             }
         }
     }
@@ -49,9 +54,10 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGameViewModel())
+        let game = EmojiMemoryGameViewModel()
+        ContentView(viewModel: game)
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-        ContentView(viewModel: EmojiMemoryGameViewModel())
+        ContentView(viewModel: game)
             .preferredColorScheme(.light)
     }
 }

@@ -14,20 +14,23 @@ struct MemoryGameModel<CardContent> {
         self.cards = Array<Card>()
         for pairIndex in 0..<numberOfCards {
             let cardContent = cardContentFactory(pairIndex)
-            cards.append(Card(id: pairIndex*2, isMatch: false, isFaceUp: true, content: cardContent))
-            cards.append(Card(id: pairIndex*2+1, isMatch: false, isFaceUp: true, content: cardContent))
+            cards.append(Card(id: pairIndex*2, content: cardContent))
+            cards.append(Card(id: pairIndex*2+1, content: cardContent))
         }
         self.cards = self.cards.shuffled()
     }
     
-    func chooseCard (_ card: Card) {
-        print("Carta escolhida: \(card)")
+    mutating func chooseCard (_ card: Card) {
+        let indexOfCard = cards.firstIndex { cardElement in
+            cardElement.id == card.id
+        } ?? 0
+        cards[indexOfCard].isFaceUp.toggle()
     }
     
     struct Card: Identifiable {
         var id: Int
-        var isMatch: Bool
-        var isFaceUp: Bool
         var content: CardContent
+        var isMatch: Bool   = false
+        var isFaceUp: Bool  = false
     }
 }
