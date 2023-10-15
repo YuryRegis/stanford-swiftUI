@@ -22,7 +22,7 @@ struct ContentView: View {
                 })
             })
         }
-        .padding()
+        .padding(.horizontal)
         .font(Font.largeTitle)
         .foregroundColor(Color.orange)
     }
@@ -32,20 +32,26 @@ struct ContentView: View {
 struct CardView: View {
     let card: MemoryGameModel<String>.Card
     var body: some View {
-        if card.isFaceUp {
-            // O último argumento é um "content", então podemos reescrever um ZStack desta forma:
-            ZStack {
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.white)
-                    .strokeBorder(lineWidth: 3)
-                Text(card.content)
-            }.padding(0)
-        } else {
-            ZStack {
-                Text(card.content)
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill()
-                    .strokeBorder(lineWidth: 3)
+        // O último argumento é um "content", então podemos reescrever um ZStack desta forma:
+        ZStack {
+            let shape = RoundedRectangle(cornerRadius: 10.0)
+            let content = Text(card.content).font(.largeTitle)
+            if (card.isFaceUp) {
+                if card.isMatch {
+                    content
+                    shape.fill()
+                        .foregroundColor(.white)
+                        .opacity(0.5)
+                    shape.strokeBorder(lineWidth: 3)
+                        .opacity(0.5)
+                } else {
+                    shape.fill().foregroundColor(.white)
+                    shape.strokeBorder(lineWidth: 3)
+                    content
+                }
+            } else {
+                content
+                shape.fill()
             }
         }
     }
