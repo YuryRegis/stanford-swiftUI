@@ -15,7 +15,7 @@ struct EmojiMemoryGameView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 65, maximum: 100))], content: {
                 ForEach(viewModel.cards, content: { card in
                     CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
+                        .aspectRatio(systemDesign.aspectRatio, contentMode: .fit)
                         .onTapGesture {
                             viewModel.chooseCard(card)
                         }
@@ -33,30 +33,42 @@ struct CardView: View {
     let card: MemoryGameModel<String>.Card
     var body: some View {
         // O último argumento é um "content", então podemos reescrever um ZStack desta forma:
-        ZStack {
-            let shape = RoundedRectangle(cornerRadius: 10.0)
-            let content = Text(card.content).font(.largeTitle)
-            if (card.isFaceUp) {
-                if card.isMatch {
+        GeometryReader(content: { geometry in
+            ZStack {
+                let shape = RoundedRectangle(cornerRadius: systemDesign.borderRadii)
+                let content = Text(card.content).font(font(in: geometry.size))
+                if (card.isFaceUp) {
+                    if card.isMatch {
+                        content
+                        shape.fill()
+                            .foregroundColor(.white)
+                            .opacity(systemDesign.opacity)
+                        shape.strokeBorder(lineWidth: systemDesign.borderStroke)
+                            .opacity(systemDesign.opacity)
+                    } else {
+                        shape.fill().foregroundColor(.white)
+                        shape.strokeBorder(lineWidth: systemDesign.borderStroke)
+                        content
+                    }
+                } else {
                     content
                     shape.fill()
-                        .foregroundColor(.white)
-                        .opacity(0.5)
-                    shape.strokeBorder(lineWidth: 3)
-                        .opacity(0.5)
-                } else {
-                    shape.fill().foregroundColor(.white)
-                    shape.strokeBorder(lineWidth: 3)
-                    content
                 }
-            } else {
-                content
-                shape.fill()
             }
-        }
+        })
+    }
+    private func font(in size: CGSize) -> Font {
+        Font.system(size: min(size.width, size.height) * systemDesign.fontScale)
     }
 }
 
+private struct systemDesign {
+    static let opacity: CGFloat         = 0.5
+    static let fontScale: CGFloat       = 0.8
+    static let borderRadii: CGFloat     = 10
+    static let aspectRatio: CGFloat     = 2/3
+    static let borderStroke: CGFloat    = 3.0
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
