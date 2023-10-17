@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2B21CB42A8E4C53006E36D0 /* stanfordCourseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CB32A8E4C53006E36D0 /* stanfordCourseApp.swift */; };
-		D2B21CB62A8E4C53006E36D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CB52A8E4C53006E36D0 /* ContentView.swift */; };
+		D2B21CB62A8E4C53006E36D0 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CB52A8E4C53006E36D0 /* EmojiMemoryGameView.swift */; };
 		D2B21CB82A8E4C56006E36D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B21CB72A8E4C56006E36D0 /* Assets.xcassets */; };
 		D2B21CBB2A8E4C56006E36D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B21CBA2A8E4C56006E36D0 /* Preview Assets.xcassets */; };
 		D2B21CC52A8E4C56006E36D0 /* stanfordCourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CC42A8E4C56006E36D0 /* stanfordCourseTests.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		D2B21CB02A8E4C53006E36D0 /* stanfordCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stanfordCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B21CB32A8E4C53006E36D0 /* stanfordCourseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stanfordCourseApp.swift; sourceTree = "<group>"; };
-		D2B21CB52A8E4C53006E36D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2B21CB52A8E4C53006E36D0 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		D2B21CB72A8E4C56006E36D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B21CBA2A8E4C56006E36D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2B21CC02A8E4C56006E36D0 /* stanfordCourseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stanfordCourseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B21CB32A8E4C53006E36D0 /* stanfordCourseApp.swift */,
-				D2B21CB52A8E4C53006E36D0 /* ContentView.swift */,
+				D2B21CB52A8E4C53006E36D0 /* EmojiMemoryGameView.swift */,
 				D2B21CB72A8E4C56006E36D0 /* Assets.xcassets */,
 				D2B21CB92A8E4C56006E36D0 /* Preview Content */,
 				D2B21CDD2A8E9FC3006E36D0 /* MemoryGameModel.swift */,
@@ -264,7 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B21CE02A8EA2B3006E36D0 /* EmojiMemoryGameViewModel.swift in Sources */,
-				D2B21CB62A8E4C53006E36D0 /* ContentView.swift in Sources */,
+				D2B21CB62A8E4C53006E36D0 /* EmojiMemoryGameView.swift in Sources */,
 				D2B21CB42A8E4C53006E36D0 /* stanfordCourseApp.swift in Sources */,
 				D2B21CDE2A8E9FC3006E36D0 /* MemoryGameModel.swift in Sources */,
 			);
