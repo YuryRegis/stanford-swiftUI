@@ -43,6 +43,8 @@ struct CardView: View {
                     } else {
                         shape.fill().foregroundColor(.white)
                         shape.strokeBorder(lineWidth: systemDesign.borderStroke)
+                        PieShape(initialAngle: Angle(degrees: 0-90), finalAngle: Angle(degrees: 10-90))
+                            .opacity(systemDesign.opacity)
                         content
                     }
                 } else {
