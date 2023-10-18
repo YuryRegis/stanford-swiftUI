@@ -16,6 +16,7 @@
 		D2B21CD12A8E4C56006E36D0 /* stanfordCourseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CD02A8E4C56006E36D0 /* stanfordCourseUITestsLaunchTests.swift */; };
 		D2B21CDE2A8E9FC3006E36D0 /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CDD2A8E9FC3006E36D0 /* MemoryGameModel.swift */; };
 		D2B21CE02A8EA2B3006E36D0 /* EmojiMemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B21CDF2A8EA2B3006E36D0 /* EmojiMemoryGameViewModel.swift */; };
+		D2D9CB012AE01A18004B4971 /* AspectRatioVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9CB002AE01A18004B4971 /* AspectRatioVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D2B21CD02A8E4C56006E36D0 /* stanfordCourseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stanfordCourseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2B21CDD2A8E9FC3006E36D0 /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
 		D2B21CDF2A8EA2B3006E36D0 /* EmojiMemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameViewModel.swift; sourceTree = "<group>"; };
+		D2D9CB002AE01A18004B4971 /* AspectRatioVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectRatioVGrid.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		D2B21CB22A8E4C53006E36D0 /* stanfordCourse */ = {
 			isa = PBXGroup;
 			children = (
+				D2D9CB002AE01A18004B4971 /* AspectRatioVGrid.swift */,
 				D2B21CB32A8E4C53006E36D0 /* stanfordCourseApp.swift */,
 				D2B21CB52A8E4C53006E36D0 /* EmojiMemoryGameView.swift */,
 				D2B21CB72A8E4C56006E36D0 /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			files = (
 				D2B21CE02A8EA2B3006E36D0 /* EmojiMemoryGameViewModel.swift in Sources */,
 				D2B21CB62A8E4C53006E36D0 /* EmojiMemoryGameView.swift in Sources */,
+				D2D9CB012AE01A18004B4971 /* AspectRatioVGrid.swift in Sources */,
 				D2B21CB42A8E4C53006E36D0 /* stanfordCourseApp.swift in Sources */,
 				D2B21CDE2A8E9FC3006E36D0 /* MemoryGameModel.swift in Sources */,
 			);
