@@ -30,28 +30,11 @@ struct CardView: View {
         // O último argumento é um "content", então podemos reescrever um ZStack desta forma:
         GeometryReader(content: { geometry in
             ZStack {
-                let shape = RoundedRectangle(cornerRadius: systemDesign.borderRadii)
-                let content = Text(card.content).font(font(in: geometry.size))
-                if (card.isFaceUp) {
-                    if card.isMatch {
-                        content
-                        shape.fill()
-                            .foregroundColor(.white)
+                PieShape(initialAngle: Angle(degrees: 0-90), finalAngle: Angle(degrees: 10-90))
                             .opacity(systemDesign.opacity)
-                        shape.strokeBorder(lineWidth: systemDesign.borderStroke)
-                            .opacity(systemDesign.opacity)
-                    } else {
-                        shape.fill().foregroundColor(.white)
-                        shape.strokeBorder(lineWidth: systemDesign.borderStroke)
-                        PieShape(initialAngle: Angle(degrees: 0-90), finalAngle: Angle(degrees: 10-90))
-                            .opacity(systemDesign.opacity)
-                        content
-                    }
-                } else {
-                    content
-                    shape.fill()
-                }
+                Text(card.content).font(font(in: geometry.size))
             }
+            .cardify(isFaceUp: card.isFaceUp, isMatch: card.isMatch)
         })
     }
     private func font(in size: CGSize) -> Font {
@@ -62,9 +45,7 @@ struct CardView: View {
 private struct systemDesign {
     static let opacity: CGFloat         = 0.5
     static let fontScale: CGFloat       = 0.7
-    static let borderRadii: CGFloat     = 9.0
     static let aspectRatio: CGFloat     = 2/3
-    static let borderStroke: CGFloat    = 3.0
 }
 
 struct ContentView_Previews: PreviewProvider {
