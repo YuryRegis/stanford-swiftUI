@@ -15,7 +15,9 @@ struct EmojiMemoryGameView: View {
             CardView(card: card)
                 .padding(3)
                 .onTapGesture {
-                    viewModel.chooseCard(card)
+                    withAnimation() {
+                        viewModel.chooseCard(card)
+                    }
                 }
         }
         .font(Font.largeTitle)
