@@ -18,7 +18,6 @@ struct CardifyViewModifier: ViewModifier {
             
             if (isFaceUp) {
                 if isMatch {
-                    content
                     shape.fill()
                         .foregroundColor(.white)
                         .opacity(systemDesign.opacity)
@@ -29,19 +28,16 @@ struct CardifyViewModifier: ViewModifier {
                     shape.strokeBorder(lineWidth: systemDesign.borderStroke)
                     PieShape(initialAngle: Angle(degrees: 0-90), finalAngle: Angle(degrees: 10-90))
                         .opacity(systemDesign.opacity)
-                    content
                 }
             } else {
-                content
                 shape.fill()
             }
+            content.opacity(isFaceUp && isMatch ? systemDesign.opacity : isFaceUp ? 1 : 0)
         }
     }
     private struct systemDesign {
         static let opacity: CGFloat         = 0.5
-        static let fontScale: CGFloat       = 0.7
         static let borderRadii: CGFloat     = 9.0
-        static let aspectRatio: CGFloat     = 2/3
         static let borderStroke: CGFloat    = 3.0
     }
 }

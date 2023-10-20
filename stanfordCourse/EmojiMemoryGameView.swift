@@ -32,10 +32,17 @@ struct CardView: View {
             ZStack {
                 PieShape(initialAngle: Angle(degrees: 0-90), finalAngle: Angle(degrees: 10-90))
                             .opacity(systemDesign.opacity)
-                Text(card.content).font(font(in: geometry.size))
+                Text(card.content)
+                    .rotationEffect(Angle.degrees(card.isMatch ? 360 : 0))
+                    .animation(Animation.linear(duration: 0.5).repeatCount(2, autoreverses: false))
+                    .font(Font.system(size: systemDesign.fontSize))
+                    .scaleEffect(scaleContent(size: geometry.size))
             }
             .cardify(isFaceUp: card.isFaceUp, isMatch: card.isMatch)
         })
+    }
+    private func scaleContent(size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (systemDesign.fontSize / systemDesign.fontScale)
     }
     private func font(in size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * systemDesign.fontScale)
@@ -44,6 +51,7 @@ struct CardView: View {
 
 private struct systemDesign {
     static let opacity: CGFloat         = 0.5
+    static let fontSize: CGFloat        = 32
     static let fontScale: CGFloat       = 0.7
     static let aspectRatio: CGFloat     = 2/3
 }
